@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Furniture – Handcrafted Vintage Barbershop Interior</title>
+  <!-- Google Fonts matching the exact Serif & Sans-Serif Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d89028;
+      --gold-hover: #efa336;
+      --white: #ffffff;
+      --text-light: #f2f2f2;
+      --container-bg: rgba(52, 49, 44, 0.88);
+      --submenu-bg: rgba(62, 58, 52, 0.97);
+      --footer-bg: rgba(18, 17, 15, 0.90);
+      --line-light: rgba(255, 255, 255, 0.24);
+      --line-faint: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--white);
+      font-size: 14.5px;
+      line-height: 1.72;
+      /* Full-screen Fixed Vintage Barbershop Background */
+      background-image:
+        linear-gradient(rgba(15, 14, 12, 0.45), rgba(15, 14, 12, 0.45)),
+        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=2000&q=85');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--gold-hover);
+      text-decoration: underline;
+    }
+
+    /* Floating Right Sticky Mail Button */
+    .floating-mail {
+      position: fixed;
+      right: 0;
+      top: 40%;
+      width: 44px;
+      height: 44px;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-right: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .floating-mail svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--gold);
+    }
+
+    /* Bottom Right Scroll To Top Button */
+    .scroll-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 38px;
+      height: 38px;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    .scroll-top:hover {
+      background: #000;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ================= MAIN BOXED CONTAINER ================= */
+    .main-wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: var(--container-bg);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ================= HEADER & DROPDOWN NAV ================= */
+    .site-header {
+      position: relative;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      padding: 18px 46px;
+      gap: 64px;
+    }
+
+    /* Vintage Logo Block */
+    .brand-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .brand-logo:hover {
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .logo-top-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1;
+    }
+
+    .logo-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 38px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      transform: rotate(-4deg);
+    }
+
+    .logo-tools-icon {
+      width: 28px;
+      height: 28px;
+      stroke: #ffffff;
+      fill: none;
+    }
+
+    .logo-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: -4px;
+    }
+
+    .logo-ribbon {
+      margin-top: 5px;
+      background: #ffffff;
+      color: #2b2927;
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      padding: 2px 12px;
+      border-radius: 1px;
+      line-height: 1.3;
+    }
+
+    /* Primary Navigation */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: static;
+    }
+
+    .nav-link {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 23px;
+      font-weight: 400;
+      color: var(--white);
+      text-decoration: none;
+      padding: 18px 0;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item:hover .nav-link,
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* Full-Width Submenu Bar on Hover (Matches 00:02 - 00:03 in video) */
+    .submenu-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      background: var(--submenu-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 14px 46px;
+      display: grid;
+      grid-template-columns: 230px 230px 230px;
+      gap: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 100;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-item.has-dropdown:hover .submenu-bar {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .submenu-bar a {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .submenu-bar a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    /* ================= CONTENT INNER PADDING ================= */
+    .content-body {
+      padding: 40px 46px 56px;
+    }
+
+    /* Double White Border Frame */
+    .double-frame {
+      border: 3px solid #ffffff;
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .double-frame-inner {
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .double-frame-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .double-frame-inner:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ================= HERO / WELCOME SECTION ================= */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .welcome-portrait {
+      width: 265px;
+      height: 365px;
+      margin-top: 8px;
+    }
+
+    .welcome-portrait img {
+      filter: grayscale(100%) contrast(1.08);
+    }
+
+    .welcome-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    .welcome-text p {
+      margin-bottom: 18px;
+      color: var(--white);
+    }
+
+    .sub-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .gold-underline {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--line-light);
+      margin: 26px 0;
+    }
+
+    /* USA Flag Shipping Row */
+    .usa-banner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 4px 0;
+    }
+
+    .usa-flag {
+      width: 114px;
+      height: 54px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    /* ================= 3-COLUMN SHOWCASE CARDS ================= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 42px;
+      margin-top: 32px;
+    }
+
+    .card-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-item .double-frame {
+      height: 390px;
+      margin-bottom: 22px;
+    }
+
+    .card-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .card-copy {
+      font-size: 14px;
+      line-height: 1.68;
+      color: var(--white);
+      margin-bottom: 26px;
+      flex-grow: 1;
+    }
+
+    .btn-outline {
+      align-self: flex-start;
+      display: inline-block;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 9px 38px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      color: #1b1b1b;
+      text-decoration: none;
+    }
+
+    /* ================= TRANSPARENT BACKGROUND GAP ================= */
+    .parallax-gap {
+      height: 86px;
+      width: 100%;
+    }
+
+    /* ================= FULL-WIDTH DARK FOOTER ================= */
+    .site-footer {
+      background: var(--footer-bg);
+      padding: 48px 0 28px;
+    }
+
+    .footer-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 46px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1fr 1.05fr;
+      gap: 38px;
+      margin-bottom: 48px;
+    }
+
+    .footer-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    /* Catalogue Thumbnail with Red Badge */
+    .catalogue-card {
+      position: relative;
+      width: 196px;
+      height: 138px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      display: block;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    .catalogue-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .click-badge {
+      position: absolute;
+      top: 14px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #d32f2f;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(12deg);
+    }
+
+    /* Footer Lists */
+    .footer-list {
+      list-style: none;
+    }
+
+    .footer-list li {
+      border-bottom: 1px solid var(--line-faint);
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-list li:first-child {
+      padding-top: 0;
+    }
+
+    .footer-list li a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-list li a:hover {
+      color: var(--gold);
+    }
+
+    .footer-icon {
+      width: 14px;
+      height: 14px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 1.8;
+      flex-shrink: 0;
+    }
+
+    /* Instagram 3x2 Thumbnail Grid */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .insta-thumb {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #222;
+    }
+
+    .insta-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .insta-thumb:hover img {
+      opacity: 0.8;
+    }
+
+    /* Footer Bottom Row */
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .copyright {
+      font-size: 11px;
+      color: #cccccc;
+    }
+
+    .footer-mini-nav {
+      background: #0b0b0b;
+      padding: 12px 26px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-mini-nav a {
+      color: #ffffff;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .footer-mini-nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Responsive Support */
+    @media (max-width: 980px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .submenu-bar {
+        grid-template-columns: 1fr;
+      }
+      .welcome-grid,
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-nav {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Right Sticky Mail Icon -->
+  <a href="contact.html" class="floating-mail" title="Mail us">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  </a>
+
+  <!-- Bottom-Right Scroll to Top Button -->
+  <a href="#top" class="scroll-top" title="Back to top">&#8963;</a>
+
+  <!-- ================= MAIN BOXED CONTAINER ================= -->
+  <div class="main-wrapper">
+
+    <!-- ================= HEADER WITH HOVER SUBMENU ================= -->
+    <header class="site-header">
+      <div class="header-inner">
+        <!-- Vintage Barber Furniture Logo -->
+        <a href="index.html" class="brand-logo">
+          <div class="logo-top-row">
+            <span class="logo-script">Barber</span>
+            <!-- Crossed Scissors & Straight Razor SVG Icon -->
+            <svg class="logo-tools-icon" viewBox="0 0 32 32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="24" r="3.2" />
+              <circle cx="24" cy="24" r="3.2" />
+              <line x1="10.5" y1="21.5" x2="25" y2="6" />
+              <line x1="21.5" y1="21.5" x2="7" y2="6" />
+            </svg>
+          </div>
+          <div class="logo-serif">FURNITURE</div>
+          <div class="logo-ribbon">CRAFTED WITH PRIDE</div>
+        </a>
+
+        <!-- Top Navigation Links -->
+        <ul class="main-nav">
+          <li class="nav-item has-dropdown">
+            <a href="barber-furniture.html" class="nav-link">Products</a>
+            <!-- Full-Width Submenu Bar -->
+            <div class="submenu-bar">
+              <a href="barber-furniture.html">Barber furniture</a>
+              <a href="barber-chairs.html">Barber chairs</a>
+              <a href="retail-furniture.html">Retail furniture</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="buying.html" class="nav-link">Buying</a>
+          </li>
+          <li class="nav-item">
+            <a href="projects.html" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ================= MAIN PAGE BODY ================= -->
+    <main class="content-body">
+
+      <!-- Welcome / Intro Section -->
+      <section class="welcome-grid">
+        <!-- Left Framed Vintage Barber Portrait -->
+        <div class="double-frame welcome-portrait">
+          <div class="double-frame-inner">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Vintage Barber Portrait" />
+          </div>
+        </div>
+
+        <!-- Right Text Content -->
+        <div class="welcome-text">
+          <h1 class="welcome-title">Welcome at Barberfurniture</h1>
+
+          <p>
+            Upgrading, restoring or bringing timeless character to your studio? Take the next step today! We supply artisanal barbershop cabinetry inspired by early twentieth-century craftsmanship that transforms your space into an authentic grooming destination!
+          </p>
+
+          <p>
+            Our Classic, Vintage or Industrial collections feature distinct styling details so you can select the exact aesthetic that fits your personality and your barbershop best. Every single unit is built with care from premium, long-lasting materials.
+          </p>
+
+          <p>
+            <a href="barber-furniture.html">At our Products section</a> you'll find the Classic Line, Vintage Line and our Barberchairs.
+          </p>
+
+          <h2 class="sub-title">Classic Line</h2>
+          <p>
+            Traditional barbershop cabinetry modeled after early 1900s European saloon interiors. Solid sandblasted oak wood finished in natural, antique or dark wenge tones paired with a brown or white marble counter. The Classic Line includes Barbersets, Counters and (display) Cabinets. Explore our Classic Line <a href="vintage-barberset.html">&gt;here.</a>
+          </p>
+
+          <h2 class="sub-title">Vintage Line</h2>
+          <p>
+            Bring back the golden era with heritage old-school barber workstations. Rich mango wood in a warm vintage brown stain topped with a signature white marble riser section. The Vintage Line features Barbersets, Counters and (display) Cabinets. Explore our Vintage line <a href="vintage-barberset.html">&gt; here.</a>
+          </p>
+
+          <h2 class="sub-title">Barberchairs</h2>
+          <p>
+            Modeled after iconic early-century grooming chairs. Heavy cast-steel frames paired with plush upholstered leather seating and distinctive vintage tailoring in rich colors. Built to be both a dependable daily workhorse and a centerpiece that gives every client supreme comfort. Explore our Barberchairs <a href="barber-chairs.html">&gt;&gt; here.</a>
+          </p>
+
+          <hr class="divider" />
+
+          <p>
+            <a href="barber-furniture.html">Interested?</a> Browse our full collection in the product section. Should you have any questions, feel free to <a href="contact.html" class="gold-underline">mail us</a> or reach out by phone at <a href="tel:+31639277040">+31 639 27 70 40</a>
+          </p>
+
+          <hr class="divider" />
+
+          <!-- USA Stock & Free Shipping Banner -->
+          <div class="usa-banner">
+            <img class="usa-flag" src="https://flagcdn.com/w320/us.png" alt="USA Flag" />
+            <div>
+              Fresh inventory has landed in the USA and is ready for immediate dispatch at <a href="https://barberbrace.us">&gt;&gt; https://barberbrace.us.</a> Available now with FREE shipping across the USA
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" style="margin-top: 30px;" />
+
+      <!-- 3-Column Feature Cards Section -->
+      <section class="cards-grid" id="products">
+        <!-- Card 1 -->
+        <article class="card-item" id="barber-furniture">
+          <div class="double-frame">
+            <div class="double-frame-inner">
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80" alt="Barber furniture" />
+            </div>
+          </div>
+          <h3 class="card-heading">Barber furniture</h3>
+          <p class="card-copy">
+            The workstation is the centerpiece of any barbershop, giving craftsmen a dedicated stage to refine their trade and deliver precision grooming. That is why we have poured uncompromising attention into building the most refined and versatile barbersets available on the market today.
+          </p>
+          <a href="barber-furniture.html" class="btn-outline">MORE</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card-item" id="barber-chairs">
+          <div class="double-frame">
+            <div class="double-frame-inner">
+              <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=800&q=80" alt="Barberchairs" />
+            </div>
+          </div>
+          <h3 class="card-heading">Barberchairs</h3>
+          <p class="card-copy">
+            Heavy-duty barber chairs with sumptuous leather upholstery. Timeless, tailored seating is an essential hallmark of every classic barbershop! Crafted from top-grade leather in three signature colorways, our chairs remain the preferred choice for barbers around the globe.
+          </p>
+          <a href="barber-chairs.html" class="btn-outline">MORE</a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card-item" id="retail-furniture">
+          <div class="double-frame">
+            <div class="double-frame-inner">
+              <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Retail furniture" />
+            </div>
+          </div>
+          <h3 class="card-heading">Retail furniture</h3>
+          <p class="card-copy">
+            Our curated range of retail display cabinets provides an elevated way to showcase grooming products at eye level. Purpose-built to complete your shop interior and constructed from solid select timber, each piece combines lasting durability with timeless visual appeal.
+          </p>
+          <a href="retail-furniture.html" class="btn-outline">MORE</a>
+        </article>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Transparent Gap Showing Fixed Vintage Background -->
+  <div class="parallax-gap"></div>
+
+  <!-- ================= 4-COLUMN FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Product Catalogue -->
+        <div>
+          <h4 class="footer-heading">Product catalogue</h4>
+          <a href="contact.html" class="catalogue-card">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=500&q=80" alt="Product Catalogue" />
+            <span class="click-badge">Click<br>here!</span>
+          </a>
+        </div>
+
+        <!-- Column 2: All Products -->
+        <div>
+          <h4 class="footer-heading">All Products</h4>
+          <ul class="footer-list">
+            <li><a href="barber-furniture.html">Barberunits</a></li>
+            <li><a href="barber-chairs.html">Barber chairs</a></li>
+            <li><a href="retail-furniture.html">Display counters</a></li>
+            <li><a href="retail-furniture.html">Display cabinets</a></li>
+            <li><a href="vintage-barberset.html">Vintage barberunit</a></li>
+            <li><a href="the-royal-series.html">The Royal Series</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Us -->
+        <div>
+          <h4 class="footer-heading">Contact us</h4>
+          <ul class="footer-list">
+            <li>
+              <svg class="footer-icon" viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a href="tel:+31639277040">+31 639 27 70 40</a>
+            </li>
+            <li>
+              <svg class="footer-icon" viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-10 7L2 7"/>
+              </svg>
+              <a href="contact.html">Mail us</a>
+            </li>
+            <li>
+              <svg class="footer-icon" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Showroom</span>
+            </li>
+            <li>Badhuisstraat 18</li>
+            <li>4703 BH Roosendaal</li>
+            <li>The Netherlands</li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Instagram Grid -->
+        <div>
+          <h4 class="footer-heading">Follow us on<br>Instagram!</h4>
+          <div class="insta-grid">
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=300&q=80" alt="Instagram 1" />
+            </a>
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=300&q=80" alt="Instagram 2" />
+            </a>
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=300&q=80" alt="Instagram 3" />
+            </a>
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=300&q=80" alt="Instagram 4" />
+            </a>
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=300&q=80" alt="Instagram 5" />
+            </a>
+            <a href="#" class="insta-thumb">
+              <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=300&q=80" alt="Instagram 6" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright & Secondary Nav -->
+      <div class="footer-bottom">
+        <div class="copyright">© Copyright Barberfurniture.com</div>
+        <nav class="footer-mini-nav">
+          <a href="barber-furniture.html">Products</a>
+          <a href="buying.html">Buying</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

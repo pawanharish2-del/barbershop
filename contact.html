@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact us or schedule a visit to our showroom! | Barber Furniture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d89028;
+      --gold-hover: #efa336;
+      --white: #ffffff;
+      --container-bg: rgba(52, 49, 44, 0.88);
+      --submenu-bg: rgba(62, 58, 52, 0.97);
+      --footer-bg: rgba(18, 17, 15, 0.90);
+      --line-light: rgba(255, 255, 255, 0.24);
+      --line-faint: rgba(255, 255, 255, 0.15);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif; color: var(--white); font-size: 14.5px; line-height: 1.72;
+      background: linear-gradient(rgba(15, 14, 12, 0.45), rgba(15, 14, 12, 0.45)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=2000&q=85') center top / cover fixed no-repeat;
+      min-height: 100vh;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--gold-hover); text-decoration: underline; }
+    /* Expanded Mail us tab seen on Contact page (01:28) */
+    .floating-mail { position: fixed; right: 0; top: 38%; padding: 10px 18px; background: #141414; border: 1px solid rgba(255,255,255,0.14); border-right: none; display: flex; align-items: center; gap: 10px; color: #fff; font-size: 13px; z-index: 1000; text-decoration: none !important; }
+    .floating-mail svg { width: 16px; height: 16px; fill: var(--gold); }
+    .scroll-top { position: fixed; right: 22px; bottom: 22px; width: 38px; height: 38px; background: rgba(20,20,20,0.85); border: 1px solid rgba(255,255,255,0.16); color: #fff; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+    .main-wrapper { max-width: 1180px; margin: 0 auto; background: var(--container-bg); box-shadow: 0 0 40px rgba(0,0,0,0.45); }
+    .site-header { position: relative; border-bottom: 1px solid var(--line-light); }
+    .header-inner { display: flex; align-items: center; padding: 18px 46px; gap: 64px; }
+    .brand-logo { display: inline-flex; flex-direction: column; align-items: center; color: var(--white); text-decoration: none !important; flex-shrink: 0; }
+    .logo-top-row { display: flex; align-items: center; gap: 6px; line-height: 1; }
+    .logo-script { font-family: 'Great Vibes', cursive; font-size: 38px; color: #fff; transform: rotate(-4deg); }
+    .logo-tools-icon { width: 28px; height: 28px; stroke: #fff; fill: none; }
+    .logo-serif { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; margin-top: -4px; }
+    .logo-ribbon { margin-top: 5px; background: #fff; color: #2b2927; font-size: 7.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; padding: 2px 12px; }
+    .main-nav { display: flex; align-items: center; gap: 34px; list-style: none; }
+    .nav-link { font-family: 'Playfair Display', serif; font-size: 23px; color: var(--white); padding: 18px 0; display: inline-block; text-decoration: none !important; }
+    .nav-item:hover .nav-link, .nav-link:hover, .nav-link.active { color: var(--gold); }
+    .submenu-bar { position: absolute; left: 0; right: 0; top: 100%; background: var(--submenu-bg); border-top: 1px solid rgba(255,255,255,0.35); border-bottom: 1px solid rgba(255,255,255,0.35); padding: 14px 46px; display: grid; grid-template-columns: 230px 230px 230px; gap: 20px; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; z-index: 100; }
+    .nav-item.has-dropdown:hover .submenu-bar { opacity: 1; visibility: visible; transform: translateY(0); }
+    .submenu-bar a { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--white); }
+    .submenu-bar a.current { text-decoration: underline; }
+    .content-body { padding: 40px 46px 60px; }
+    .page-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 500; color: var(--gold); margin-bottom: 14px; }
+    .divider { border: none; border-top: 1px solid var(--line-light); margin: 34px 0; }
+    /* Contact Form & Showroom Sidebar Grid */
+    .contact-top-grid { display: grid; grid-template-columns: 1.9fr 1fr; gap: 60px; align-items: start; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13.5px; margin-bottom: 5px; color: #fff; }
+    .form-control { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.55); color: #fff; padding: 9px 12px; font-family: inherit; font-size: 14px; outline: none; }
+    .form-control:focus { border-color: var(--gold); }
+    textarea.form-control { height: 150px; resize: vertical; }
+    .recaptcha-mock { width: 260px; height: 66px; background: #f9f9f9; border: 1px solid #d3d3d3; border-radius: 3px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: #222; font-size: 13px; margin: 12px 0 20px; }
+    .recaptcha-left { display: flex; align-items: center; gap: 10px; }
+    .recaptcha-box { width: 22px; height: 22px; border: 2px solid #c1c1c1; background: #fff; }
+    .showroom-box { text-align: center; padding-top: 20px; }
+    .showroom-box .logo-script { font-size: 62px; }
+    .showroom-box .logo-tools-icon { width: 46px; height: 46px; }
+    .showroom-box .logo-serif { font-size: 26px; letter-spacing: 3.5px; }
+    .showroom-box .logo-ribbon { font-size: 11px; padding: 4px 20px; margin-bottom: 28px; display: inline-block; }
+    .showroom-details h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .showroom-details p { font-size: 14px; line-height: 1.8; }
+    /* Distributors Row */
+    .distributors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 22px; }
+    .dist-name { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+    .dist-region { color: var(--gold); font-size: 14px; margin-bottom: 14px; display: block; }
+    .dist-info { list-style: none; margin-bottom: 22px; }
+    .dist-info li { border-bottom: 1px solid var(--line-faint); padding: 6px 0; font-size: 14px; }
+    .btn-outline { display: inline-block; border: 2px solid #fff; color: #fff; padding: 8px 30px; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; background: transparent; cursor: pointer; text-decoration: none !important; transition: all 0.25s ease; }
+    .btn-outline:hover { background: #fff; color: #1b1b1b; }
+    /* Virtual Showroom Section */
+    .double-frame { border: 3px solid #fff; padding: 5px; background: rgba(0,0,0,0.25); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .double-frame-inner { border: 1px solid rgba(255,255,255,0.9); width: 100%; height: 100%; overflow: hidden; }
+    .double-frame-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .virtual-split { display: grid; grid-template-columns: 380px 1fr; gap: 46px; align-items: start; }
+    .virtual-split .double-frame { height: 260px; }
+    .virtual-badge { display: inline-flex; flex-direction: column; align-items: center; margin-top: 18px; color: #fff; text-decoration: none !important; }
+    .virtual-badge .v-script { font-family: 'Great Vibes', cursive; font-size: 40px; line-height: 1; }
+    .virtual-badge .v-tour { font-family: 'Playfair Display', serif; font-size: 19px; letter-spacing: 3px; border-top: 1px solid #fff; border-bottom: 1px solid #fff; padding: 2px 10px; margin-top: 2px; }
+    .parallax-gap { height: 86px; width: 100%; }
+    .site-footer { background: var(--footer-bg); padding: 48px 0 28px; }
+    .footer-container { max-width: 1180px; margin: 0 auto; padding: 0 46px; }
+    .footer-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1.05fr; gap: 38px; margin-bottom: 48px; }
+    .footer-heading { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: #fff; margin-bottom: 18px; line-height: 1.25; }
+    .catalogue-card { position: relative; width: 196px; height: 138px; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; display: block; }
+    .catalogue-card img { width: 100%; height: 100%; object-fit: cover; }
+    .click-badge { position: absolute; top: 14px; right: 12px; width: 38px; height: 38px; border-radius: 50%; background: #d32f2f; color: #fff; font-size: 9px; font-weight: 700; line-height: 1.1; display: flex; align-items: center; justify-content: center; text-align: center; transform: rotate(12deg); }
+    .footer-list { list-style: none; }
+    .footer-list li { border-bottom: 1px solid var(--line-faint); padding: 8px 0; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+    .footer-list li:first-child { padding-top: 0; }
+    .footer-list li a { color: #fff; }
+    .footer-list li a:hover { color: var(--gold); text-decoration: none; }
+    .footer-icon { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 1.8; flex-shrink: 0; }
+    .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .insta-thumb { aspect-ratio: 1/1; overflow: hidden; background: #222; }
+    .insta-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .copyright { font-size: 11px; color: #ccc; }
+    .footer-mini-nav { background: #0b0b0b; padding: 12px 26px; display: flex; gap: 24px; }
+    .footer-mini-nav a { color: #fff; font-size: 12px; }
+    @media (max-width: 980px) { .contact-top-grid, .distributors-grid, .virtual-split, .footer-grid { grid-template-columns: 1fr;  .header-inner { flex-direction: column; align-items: flex-start; gap: 20px; } .submenu-bar { grid-template-columns: 1fr; } } }
+  
+    @media (max-width: 600px) {
+      .main-nav {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <a href="mailto:info@barberfurniture.com" class="floating-mail" title="Mail us"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span>Mail us</span></a>
+  <a href="#top" class="scroll-top">&#8963;</a>
+
+  <div class="main-wrapper">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-top-row">
+            <span class="logo-script">Barber</span>
+            <svg class="logo-tools-icon" viewBox="0 0 32 32" stroke-width="1.8"><circle cx="8" cy="24" r="3.2"/><circle cx="24" cy="24" r="3.2"/><line x1="10.5" y1="21.5" x2="25" y2="6"/><line x1="21.5" y1="21.5" x2="7" y2="6"/></svg>
+          </div>
+          <div class="logo-serif">FURNITURE</div>
+          <div class="logo-ribbon">CRAFTED WITH PRIDE</div>
+        </a>
+        <ul class="main-nav">
+          <li class="nav-item has-dropdown">
+            <a href="barber-furniture.html" class="nav-link">Products</a>
+            <div class="submenu-bar">
+              <a href="barber-furniture.html">Barber furniture</a>
+              <a href="barber-chairs.html">Barber chairs</a>
+              <a href="retail-furniture.html">Retail furniture</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="buying.html" class="nav-link">Buying</a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="content-body">
+      <section class="contact-top-grid">
+        <div>
+          <h1 class="page-title">Contact us or schedule a visit to our showroom!</h1>
+          <p style="margin-bottom: 18px;">
+            Collaborating with experienced craftsmen and retailers we develop high quality barber furniture for any kind of budget. If you are interested in our furniture or need any service. Please send us a message via our contactform.
+          </p>
+          <p style="margin-bottom: 18px; font-size: 13px;">All fields are required</p>
+
+          <form onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label>Your country</label>
+              <input type="text" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label>Your question or comment</label>
+              <textarea class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+              <label>Recaptcha</label>
+              <div class="recaptcha-mock">
+                <div class="recaptcha-left">
+                  <span class="recaptcha-box"></span>
+                  <span>I'm not a robot</span>
+                </div>
+                <span style="font-size:10px; color:#777;">reCAPTCHA</span>
+              </div>
+            </div>
+            <button type="submit" class="btn-outline">Submit</button>
+          </form>
+        </div>
+
+        <aside class="showroom-box">
+          <div class="brand-logo">
+            <div class="logo-top-row">
+              <span class="logo-script">Barber</span>
+              <svg class="logo-tools-icon" viewBox="0 0 32 32" stroke-width="1.8"><circle cx="8" cy="24" r="3.2"/><circle cx="24" cy="24" r="3.2"/><line x1="10.5" y1="21.5" x2="25" y2="6"/><line x1="21.5" y1="21.5" x2="7" y2="6"/></svg>
+            </div>
+            <div class="logo-serif">FURNITURE</div>
+            <div class="logo-ribbon">CRAFTED WITH PRIDE</div>
+          </div>
+
+          <div class="showroom-details">
+            <h4>Showroom</h4>
+            <p><a href="index.html">Barberfurniture BV</a></p>
+            <p>Badhuisstraat 18, 4703 BH</p>
+            <p>Roosendaal, Nederland</p>
+            <p style="margin-top: 8px;"><a href="tel:+31639277040">+31 639 27 70 40</a></p>
+          </div>
+        </aside>
+      </section>
+
+      <hr class="divider" />
+
+      <section>
+        <h2 class="page-title" style="font-size: 28px;">Barberfurniture has professional distributors around the world</h2>
+        <div class="distributors-grid">
+          <div>
+            <h3 class="dist-name">Barberbrace</h3>
+            <span class="dist-region">Benelux</span>
+            <ul class="dist-info">
+              <li>Badhuisstraat 18</li>
+              <li>4703 BH Roosendaal</li>
+              <li>The Netherlands</li>
+              <li>+316 39 27 44 09</li>
+            </ul>
+            <a href="buying.html" class="btn-outline">MORE &gt;</a>
+          </div>
+          <div>
+            <h3 class="dist-name">Barbers Concept</h3>
+            <span class="dist-region">Germany</span>
+            <ul class="dist-info">
+              <li>Vogelsanger Weg 80</li>
+              <li>40470 Düsseldorf</li>
+              <li>Germany</li>
+              <li>+49 211 301 76 76 0</li>
+            </ul>
+            <a href="buying.html" class="btn-outline">MORE &gt;</a>
+          </div>
+          <div>
+            <h3 class="dist-name">BarberBrace US</h3>
+            <span class="dist-region">USA</span>
+            <ul class="dist-info">
+              <li>6700 West Brown Deer Road</li>
+              <li>Brown Deer WI 53223</li>
+              <li>USA</li>
+              <li>Contact us by clicking more</li>
+            </ul>
+            <a href="buying.html" class="btn-outline">MORE &gt;</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="virtual-split" id="virtual-tour">
+        <div class="double-frame">
+          <div class="double-frame-inner">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Virtual Showroom" />
+          </div>
+        </div>
+        <div>
+          <h2 class="page-title" style="font-size: 28px;">Virtual showroom</h2>
+          <p>Take a tour through our showroom right from your desk!</p>
+          <a href="#virtual-tour" class="virtual-badge">
+            <span class="v-script">Virtual</span>
+            <span class="v-tour">TOUR</span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="parallax-gap"></div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-heading">Product catalogue</h4>
+          <a href="contact.html" class="catalogue-card">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=500&q=80" alt="Product Catalogue" />
+            <span class="click-badge">Click<br>here!</span>
+          </a>
+        </div>
+        <div>
+          <h4 class="footer-heading">All Products</h4>
+          <ul class="footer-list">
+            <li><a href="barber-furniture.html">Barberunits</a></li>
+            <li><a href="barber-chairs.html">Barber chairs</a></li>
+            <li><a href="retail-furniture.html">Display counters</a></li>
+            <li><a href="retail-furniture.html">Display cabinets</a></li>
+            <li><a href="vintage-barberset.html">Vintage barberunit</a></li>
+            <li><a href="the-royal-series.html">The Royal Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact us</h4>
+          <ul class="footer-list">
+            <li><svg class="footer-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+31639277040">+31 639 27 70 40</a></li>
+            <li><svg class="footer-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><a href="contact.html">Mail us</a></li>
+            <li><svg class="footer-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Showroom</span></li>
+            <li>Badhuisstraat 18</li>
+            <li>4703 BH Roosendaal</li>
+            <li>The Netherlands</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Follow us on<br>Instagram!</h4>
+          <div class="insta-grid">
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+            <a href="#" class="insta-thumb"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=300&q=80" alt="" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">© Copyright Barberfurniture.com</div>
+        <nav class="footer-mini-nav">
+          <a href="barber-furniture.html">Products</a>
+          <a href="buying.html">Buying</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
